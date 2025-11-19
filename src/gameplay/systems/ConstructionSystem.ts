@@ -76,7 +76,8 @@ export class ConstructionSystem {
             width: def.width,
             height: def.height,
             health: def.health,
-            maxHealth: def.health
+            maxHealth: def.health,
+            assetId: def.assetId
         };
 
         return true;

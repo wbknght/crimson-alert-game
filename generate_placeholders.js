@@ -9,25 +9,33 @@ import path from 'path';
 // PixiJS supports SVGs. Let's use SVGs for placeholders! Much easier.
 
 const assets = [
-    { name: 'rifleman.svg', color: 'red', text: 'Unit' },
-    { name: 'tank.svg', color: 'blue', text: 'Tank' },
-    { name: 'hq.svg', color: 'green', text: 'HQ' },
-    { name: 'grass.svg', color: '#33cc33', text: '' }
+  { name: 'rifleman.svg', color: 'red', text: 'Unit' },
+  { name: 'tank.svg', color: 'blue', text: 'Tank' },
+  { name: 'hq.svg', color: 'green', text: 'HQ' },
+  { name: 'grass.svg', color: '#33cc33', text: '' },
+  { name: 'projectile.svg', color: 'yellow', text: '', shape: 'circle' }
 ];
 
 const outDir = 'public/assets/placeholders';
 
 if (!fs.existsSync(outDir)) {
-    fs.mkdirSync(outDir, { recursive: true });
+  fs.mkdirSync(outDir, { recursive: true });
 }
 
 assets.forEach(asset => {
-    const svg = `
+  let innerSvgContent;
+  if (asset.shape === 'circle') {
+    innerSvgContent = `<circle cx="32" cy="32" r="10" fill="${asset.color}" />`;
+  } else {
+    innerSvgContent = `<rect width="64" height="64" fill="${asset.color}" />
+    <text x="32" y="32" font-family="Arial" font-size="12" fill="white" text-anchor="middle" dy=".3em">${asset.text}</text>`;
+  }
+
+  const svg = `
   <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-    <rect width="64" height="64" fill="${asset.color}" />
-    <text x="32" y="32" font-family="Arial" font-size="12" fill="white" text-anchor="middle" dy=".3em">${asset.text}</text>
+    ${innerSvgContent}
   </svg>`;
 
-    fs.writeFileSync(path.join(outDir, asset.name), svg);
-    console.log(`Created ${asset.name}`);
+  fs.writeFileSync(path.join(outDir, asset.name), svg);
+  console.log(`Created ${asset.name}`);
 });

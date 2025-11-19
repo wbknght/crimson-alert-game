@@ -77,7 +77,51 @@ export const FactionCrimson: FactionData = {
             height: 3,
             assetId: 'building_hq'
         },
-        // Add more...
+        'power_plant': {
+            id: 'power_plant',
+            name: 'Tesla Reactor',
+            type: 'building',
+            cost: 600,
+            buildTime: 100,
+            health: 500,
+            speed: 0,
+            range: 0,
+            damage: 0,
+            fireRate: 0,
+            width: 2,
+            height: 2,
+            assetId: 'building_hq' // Placeholder
+        },
+        'barracks': {
+            id: 'barracks',
+            name: 'Barracks',
+            type: 'building',
+            cost: 500,
+            buildTime: 100,
+            health: 800,
+            speed: 0,
+            range: 0,
+            damage: 0,
+            fireRate: 0,
+            width: 3,
+            height: 2,
+            assetId: 'building_hq' // Placeholder
+        },
+        'refinery': {
+            id: 'refinery',
+            name: 'Ore Refinery',
+            type: 'building',
+            cost: 2000,
+            buildTime: 200,
+            health: 1000,
+            speed: 0,
+            range: 0,
+            damage: 0,
+            fireRate: 0,
+            width: 3,
+            height: 2,
+            assetId: 'building_hq' // Placeholder
+        }
     }
 };
 
@@ -133,6 +177,51 @@ export const FactionLiberty: FactionData = {
             width: 3,
             height: 3,
             assetId: 'building_hq'
+        },
+        'power_plant': {
+            id: 'power_plant',
+            name: 'Power Plant',
+            type: 'building',
+            cost: 800,
+            buildTime: 100,
+            health: 400,
+            speed: 0,
+            range: 0,
+            damage: 0,
+            fireRate: 0,
+            width: 2,
+            height: 2,
+            assetId: 'building_hq' // Placeholder
+        },
+        'barracks': {
+            id: 'barracks',
+            name: 'Boot Camp',
+            type: 'building',
+            cost: 500,
+            buildTime: 100,
+            health: 600,
+            speed: 0,
+            range: 0,
+            damage: 0,
+            fireRate: 0,
+            width: 3,
+            height: 2,
+            assetId: 'building_hq' // Placeholder
+        },
+        'refinery': {
+            id: 'refinery',
+            name: 'Ore Refinery',
+            type: 'building',
+            cost: 2000,
+            buildTime: 200,
+            health: 1000,
+            speed: 0,
+            range: 0,
+            damage: 0,
+            fireRate: 0,
+            width: 3,
+            height: 2,
+            assetId: 'building_hq' // Placeholder
         }
     }
 };

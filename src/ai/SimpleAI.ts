@@ -1,6 +1,6 @@
 import type { GameState } from '../engine/state/GameState';
 import { ConstructionSystem } from '../gameplay/systems/ConstructionSystem';
-import { BuildingDefinitions } from '../gameplay/rules/BuildingRules';
+import { Factions } from '../gameplay/rules/FactionData';
 import { MovementSystem } from '../gameplay/systems/MovementSystem';
 
 export class SimpleAI {
@@ -30,12 +30,15 @@ export class SimpleAI {
         const player = state.players[this.playerId];
         if (!player) return;
 
+        const faction = Factions[player.factionId];
+        if (!faction) return;
+
         // Build base
         if (this.buildIndex < this.buildOrder.length) {
             const buildingId = this.buildOrder[this.buildIndex];
-            const def = BuildingDefinitions[buildingId];
+            const def = faction.buildings[buildingId];
 
-            if (player.resources >= def.cost) {
+            if (def && player.resources >= def.cost) {
                 // Find a spot
                 // Very simple placement: just find a spot near HQ
                 // For prototype, hardcode positions or simple scan

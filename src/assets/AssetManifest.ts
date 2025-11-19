@@ -40,6 +40,12 @@ export const defaultManifest: AssetManifest = {
             id: 'terrain_grass',
             src: 'assets/placeholders/grass.svg',
             type: 'image',
+        },
+        {
+            id: 'projectile',
+            src: 'assets/placeholders/projectile.svg',
+            type: 'image',
+            metadata: { anchor: { x: 0.5, y: 0.5 } }
         }
     ]
 };

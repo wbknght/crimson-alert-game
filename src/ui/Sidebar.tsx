@@ -1,12 +1,17 @@
 import React from 'react';
-import { BuildingDefinitions } from '../gameplay/rules/BuildingRules';
+import { Factions } from '../gameplay/rules/FactionData';
 
 interface SidebarProps {
+    factionId: string;
     resources: number;
     onBuild: (buildingId: string) => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ resources, onBuild }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ factionId, resources, onBuild }) => {
+    const faction = Factions[factionId];
+
+    if (!faction) return <div>Unknown Faction</div>;
+
     return (
         <div style={{
             width: '200px',
@@ -20,12 +25,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ resources, onBuild }) => {
             gap: '10px'
         }}>
             <div style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '20px' }}>
-                Resources: ${resources}
+                {faction.name}
+                <div style={{ fontSize: '14px', color: '#aaa' }}>Resources: ${resources}</div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                 <div style={{ fontWeight: 'bold' }}>Buildings</div>
-                {Object.values(BuildingDefinitions).map(def => (
+                {Object.values(faction.buildings).map(def => (
                     <button
                         key={def.id}
                         onClick={() => onBuild(def.id)}

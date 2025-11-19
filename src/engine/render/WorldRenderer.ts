@@ -55,9 +55,12 @@ export class WorldRenderer {
         const TILE_SIZE = 64;
 
         Object.values(state.entities).forEach(entity => {
-            let textureId = 'unit_rifleman'; // Default
-            if (entity.type === 'tank') textureId = 'unit_tank';
-            if (entity.type === 'hq') textureId = 'building_hq';
+            let textureId = entity.assetId || 'unit_rifleman';
+            // Fallback for legacy types if assetId not set (though it should be now)
+            if (!entity.assetId) {
+                if (entity.type === 'tank') textureId = 'unit_tank';
+                if (entity.type === 'hq') textureId = 'building_hq';
+            }
 
             const texture = this.assetManager.get(textureId);
             if (texture) {

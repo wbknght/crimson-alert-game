@@ -8,6 +8,7 @@ export interface Entity {
   type: string;
   ownerId: string;
   position: Vector2;
+  assetId?: string; // Optional override for visual
   // We can add more dynamic components here later (health, state, etc.)
   [key: string]: any;
 }

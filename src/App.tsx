@@ -10,6 +10,7 @@ import { InputManager } from './engine/input/InputManager';
 import { MovementSystem } from './gameplay/systems/MovementSystem';
 import { ConstructionSystem } from './gameplay/systems/ConstructionSystem';
 import { ResourceSystem } from './gameplay/systems/ResourceSystem';
+import { CombatSystem } from './gameplay/systems/CombatSystem';
 import { SimpleAI } from './ai/SimpleAI';
 import { Sidebar } from './ui/Sidebar';
 
@@ -50,8 +51,8 @@ const App: React.FC = () => {
       const state = createInitialState();
 
       // Setup Players
-      state.players['player_1'] = { id: 'player_1', color: 0x00ff00, resources: 1000 };
-      state.players['player_2'] = { id: 'player_2', color: 0xff0000, resources: 1000 };
+      state.players['player_1'] = { id: 'player_1', factionId: 'crimson', color: 0xff0000, resources: 1000 };
+      state.players['player_2'] = { id: 'player_2', factionId: 'liberty', color: 0x0000ff, resources: 1000 };
 
       // Spawn Initial Units/Buildings
       // Player 1 (Human)
@@ -71,8 +72,9 @@ const App: React.FC = () => {
       const inputManager = new InputManager(app);
       const movementSystem = new MovementSystem(map);
       const constructionSystem = new ConstructionSystem(map);
-      const resourceSystem = new ResourceSystem(movementSystem); // New system
-      const aiController = new SimpleAI('player_2', constructionSystem, movementSystem); // New system
+      const resourceSystem = new ResourceSystem(movementSystem);
+      const combatSystem = new CombatSystem();
+      const aiController = new SimpleAI('player_2', constructionSystem, movementSystem);
 
       // Local selection state (client-side only)
       let selectedEntityIds: string[] = [];
@@ -120,8 +122,9 @@ const App: React.FC = () => {
 
           // Update Systems
           movementSystem.update(state, dt);
-          resourceSystem.update(state, dt); // New system update
-          aiController.update(state, dt); // New system update
+          resourceSystem.update(state, dt);
+          combatSystem.update(state, dt);
+          aiController.update(state, dt);
 
           state.tick++;
 
@@ -159,7 +162,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', height: '100vh', background: '#333' }}>
-      <Sidebar resources={resources} onBuild={(id) => gameInstanceRef.current?.startBuild(id)} />
+      <Sidebar factionId="crimson" resources={resources} onBuild={(id) => gameInstanceRef.current?.startBuild(id)} />
       <div style={{ flex: 1, position: 'relative' }}>
         {loading && <div style={{ color: 'white', position: 'absolute', top: 10, left: 10 }}>Loading Assets...</div>}
         <canvas ref={canvasRef} />
