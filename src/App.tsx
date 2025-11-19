@@ -11,6 +11,7 @@ import { MovementSystem } from './gameplay/systems/MovementSystem';
 import { ConstructionSystem } from './gameplay/systems/ConstructionSystem';
 import { ResourceSystem } from './gameplay/systems/ResourceSystem';
 import { CombatSystem } from './gameplay/systems/CombatSystem';
+import { VisibilitySystem } from './gameplay/systems/VisibilitySystem';
 import { SimpleAI } from './ai/SimpleAI';
 import { Sidebar } from './ui/Sidebar';
 
@@ -51,8 +52,23 @@ const App: React.FC = () => {
       const state = createInitialState();
 
       // Setup Players
-      state.players['player_1'] = { id: 'player_1', factionId: 'crimson', color: 0xff0000, resources: 1000 };
-      state.players['player_2'] = { id: 'player_2', factionId: 'liberty', color: 0x0000ff, resources: 1000 };
+      // Setup Players
+      state.players['player_1'] = {
+        id: 'player_1',
+        factionId: 'crimson',
+        color: 0xff0000,
+        resources: 1000,
+        explored: [],
+        visible: []
+      };
+      state.players['player_2'] = {
+        id: 'player_2',
+        factionId: 'liberty',
+        color: 0x0000ff,
+        resources: 1000,
+        explored: [],
+        visible: []
+      };
 
       // Spawn Initial Units/Buildings
       // Player 1 (Human)
@@ -74,6 +90,7 @@ const App: React.FC = () => {
       const constructionSystem = new ConstructionSystem(map);
       const resourceSystem = new ResourceSystem(movementSystem);
       const combatSystem = new CombatSystem();
+      const visibilitySystem = new VisibilitySystem(map);
       const aiController = new SimpleAI('player_2', constructionSystem, movementSystem);
 
       // Local selection state (client-side only)
@@ -124,6 +141,7 @@ const App: React.FC = () => {
           movementSystem.update(state, dt);
           resourceSystem.update(state, dt);
           combatSystem.update(state, dt);
+          visibilitySystem.update(state);
           aiController.update(state, dt);
 
           state.tick++;

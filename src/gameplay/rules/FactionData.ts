@@ -9,6 +9,7 @@ export interface UnitStats {
     health: number;
     speed: number; // tiles per tick (approx)
     range: number; // tiles
+    vision: number; // tiles
     damage: number;
     fireRate: number; // ticks between shots
     width: number;
@@ -39,6 +40,7 @@ export const FactionCrimson: FactionData = {
             health: 120,
             speed: 0.04,
             range: 4,
+            vision: 6,
             damage: 15,
             fireRate: 30,
             width: 1,
@@ -54,6 +56,7 @@ export const FactionCrimson: FactionData = {
             health: 800,
             speed: 0.03,
             range: 6,
+            vision: 8,
             damage: 60,
             fireRate: 60,
             width: 1,
@@ -71,6 +74,7 @@ export const FactionCrimson: FactionData = {
             health: 2000,
             speed: 0,
             range: 0,
+            vision: 10,
             damage: 0,
             fireRate: 0,
             width: 3,
@@ -86,6 +90,7 @@ export const FactionCrimson: FactionData = {
             health: 500,
             speed: 0,
             range: 0,
+            vision: 4,
             damage: 0,
             fireRate: 0,
             width: 2,
@@ -101,6 +106,7 @@ export const FactionCrimson: FactionData = {
             health: 800,
             speed: 0,
             range: 0,
+            vision: 5,
             damage: 0,
             fireRate: 0,
             width: 3,
@@ -116,6 +122,7 @@ export const FactionCrimson: FactionData = {
             health: 1000,
             speed: 0,
             range: 0,
+            vision: 5,
             damage: 0,
             fireRate: 0,
             width: 3,
@@ -140,6 +147,7 @@ export const FactionLiberty: FactionData = {
             health: 80,
             speed: 0.06,
             range: 5,
+            vision: 7,
             damage: 10,
             fireRate: 20,
             width: 1,
@@ -155,6 +163,7 @@ export const FactionLiberty: FactionData = {
             health: 500,
             speed: 0.05,
             range: 5,
+            vision: 7,
             damage: 40,
             fireRate: 40,
             width: 1,
@@ -172,6 +181,7 @@ export const FactionLiberty: FactionData = {
             health: 1500,
             speed: 0,
             range: 0,
+            vision: 10,
             damage: 0,
             fireRate: 0,
             width: 3,
@@ -187,6 +197,7 @@ export const FactionLiberty: FactionData = {
             health: 400,
             speed: 0,
             range: 0,
+            vision: 4,
             damage: 0,
             fireRate: 0,
             width: 2,
@@ -202,6 +213,7 @@ export const FactionLiberty: FactionData = {
             health: 600,
             speed: 0,
             range: 0,
+            vision: 5,
             damage: 0,
             fireRate: 0,
             width: 3,
@@ -217,6 +229,7 @@ export const FactionLiberty: FactionData = {
             health: 1000,
             speed: 0,
             range: 0,
+            vision: 5,
             damage: 0,
             fireRate: 0,
             width: 3,

@@ -18,6 +18,8 @@ export interface Player {
   factionId: string; // New field
   color: number; // Hex color
   resources: number;
+  explored: boolean[]; // Array of booleans, index = y * width + x
+  visible: boolean[]; // Array of booleans, index = y * width + x
 }
 
 export interface GameState {
