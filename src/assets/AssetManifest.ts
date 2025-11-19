@@ -37,6 +37,24 @@ export const defaultManifest: AssetManifest = {
             metadata: { scale: 1, anchor: { x: 0.5, y: 0.5 } }
         },
         {
+            id: 'building_power',
+            src: 'assets/placeholders/power.svg',
+            type: 'image',
+            metadata: { scale: 1, anchor: { x: 0.5, y: 0.5 } }
+        },
+        {
+            id: 'building_barracks',
+            src: 'assets/placeholders/barracks.svg',
+            type: 'image',
+            metadata: { scale: 1, anchor: { x: 0.5, y: 0.5 } }
+        },
+        {
+            id: 'building_refinery',
+            src: 'assets/placeholders/refinery.svg',
+            type: 'image',
+            metadata: { scale: 1, anchor: { x: 0.5, y: 0.5 } }
+        },
+        {
             id: 'terrain_grass',
             src: 'assets/placeholders/grass.svg',
             type: 'image',
@@ -46,6 +64,16 @@ export const defaultManifest: AssetManifest = {
             src: 'assets/placeholders/projectile.svg',
             type: 'image',
             metadata: { anchor: { x: 0.5, y: 0.5 } }
+        },
+        {
+            id: 'terrain_water',
+            src: 'assets/placeholders/water.svg',
+            type: 'image',
+        },
+        {
+            id: 'terrain_rock',
+            src: 'assets/placeholders/rock.svg',
+            type: 'image',
         }
     ]
 };

@@ -12,8 +12,13 @@ const assets = [
   { name: 'rifleman.svg', color: 'red', text: 'Unit' },
   { name: 'tank.svg', color: 'blue', text: 'Tank' },
   { name: 'hq.svg', color: 'green', text: 'HQ' },
+  { name: 'power.svg', color: 'orange', text: 'PWR' },
+  { name: 'barracks.svg', color: 'brown', text: 'BAR' },
+  { name: 'refinery.svg', color: 'purple', text: 'REF' },
   { name: 'grass.svg', color: '#33cc33', text: '' },
-  { name: 'projectile.svg', color: 'yellow', text: '', shape: 'circle' }
+  { name: 'projectile.svg', color: 'yellow', text: '', shape: 'circle' },
+  { name: 'water.svg', color: '#0000ff', text: '' },
+  { name: 'rock.svg', color: '#808080', text: '' }
 ];
 
 const outDir = 'public/assets/placeholders';

@@ -95,7 +95,7 @@ export const FactionCrimson: FactionData = {
             fireRate: 0,
             width: 2,
             height: 2,
-            assetId: 'building_hq' // Placeholder
+            assetId: 'building_power'
         },
         'barracks': {
             id: 'barracks',
@@ -111,7 +111,7 @@ export const FactionCrimson: FactionData = {
             fireRate: 0,
             width: 3,
             height: 2,
-            assetId: 'building_hq' // Placeholder
+            assetId: 'building_barracks'
         },
         'refinery': {
             id: 'refinery',
@@ -127,7 +127,7 @@ export const FactionCrimson: FactionData = {
             fireRate: 0,
             width: 3,
             height: 2,
-            assetId: 'building_hq' // Placeholder
+            assetId: 'building_refinery'
         }
     }
 };
@@ -202,7 +202,7 @@ export const FactionLiberty: FactionData = {
             fireRate: 0,
             width: 2,
             height: 2,
-            assetId: 'building_hq' // Placeholder
+            assetId: 'building_power'
         },
         'barracks': {
             id: 'barracks',
@@ -218,7 +218,7 @@ export const FactionLiberty: FactionData = {
             fireRate: 0,
             width: 3,
             height: 2,
-            assetId: 'building_hq' // Placeholder
+            assetId: 'building_barracks'
         },
         'refinery': {
             id: 'refinery',
@@ -234,7 +234,7 @@ export const FactionLiberty: FactionData = {
             fireRate: 0,
             width: 3,
             height: 2,
-            assetId: 'building_hq' // Placeholder
+            assetId: 'building_refinery'
         }
     }
 };

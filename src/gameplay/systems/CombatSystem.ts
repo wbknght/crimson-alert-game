@@ -89,7 +89,7 @@ export class CombatSystem {
 
             if (dist < (proj.speed || 0.5)) {
                 // Hit!
-                this.applyDamage(state, target, proj.damage || 0);
+                this.applyDamage(target, proj.damage || 0);
                 delete state.entities[proj.id];
             } else {
                 // Move
@@ -100,7 +100,7 @@ export class CombatSystem {
         });
     }
 
-    private applyDamage(state: GameState, target: Entity, damage: number) {
+    private applyDamage(target: Entity, damage: number) {
         if (target.health !== undefined) {
             target.health -= damage;
         }
